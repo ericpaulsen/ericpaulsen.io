@@ -235,7 +235,7 @@ a:hover {
 }
 
 .home-title {
-    font-size: var(--font-size-2xl);
+    font-size: 3rem;
     display: inline-block;
     position: relative;
     margin: var(--space-lg);
@@ -243,7 +243,7 @@ a:hover {
 }
 
 .home-subtitle {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-lg);
     color: var(--text-secondary);
     margin-bottom: var(--space-lg);
     max-width: 500px;
@@ -294,14 +294,20 @@ a:hover {
     font-size: 34.3px;
 }
 
-/* Dashed divider line */
+/* Dashed divider line - Safari-compatible */
 .home-divider {
-    width: 20px;
-    height: 0;
+    width: 30px;
+    height: 2px;
     border: none;
-    border-top: 2px dashed var(--text-secondary);
     margin: var(--space-md) 0;
     opacity: 0.6;
+    background: repeating-linear-gradient(
+        to right,
+        var(--text-secondary) 0px,
+        var(--text-secondary) 4px,
+        transparent 4px,
+        transparent 8px
+    );
 }
 
 /* Email Link */
@@ -781,6 +787,8 @@ a:hover {
 .media-grid {
     display: grid;
     gap: var(--space-lg);
+    /* Safari fallback for gap */
+    grid-gap: var(--space-lg);
 }
 
 @media (min-width: 700px) {
@@ -795,11 +803,14 @@ a:hover {
     border-radius: 8px;
     overflow: hidden;
     transition: all var(--transition-base);
+    /* Safari transform fix */
+    -webkit-transform: translateZ(0);
 }
 
 .media-card:hover {
     border-color: var(--accent);
     transform: translateY(-4px);
+    -webkit-transform: translateY(-4px);
 }
 
 .media-link {
@@ -824,7 +835,10 @@ a:hover {
 .media-thumbnail::before {
     content: '';
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: repeating-linear-gradient(
         45deg,
         transparent,
