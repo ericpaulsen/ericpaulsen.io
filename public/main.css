@@ -219,6 +219,7 @@ a:hover {
     max-width: 900px;
     margin: 0 auto;
     padding: var(--space-2xl) var(--space-lg);
+    overflow-x: hidden;
 }
 
 /* ===================================
@@ -330,6 +331,37 @@ a:hover {
 
 .email-link:hover::after {
     width: 100%;
+}
+
+/* Location identifier */
+.about-location {
+    margin-top: var(--space-sm);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+}
+
+.about-location i {
+    color: var(--accent);
+}
+
+/* About Photo */
+.about-photo-section {
+    padding: var(--space-xl);
+    overflow: hidden;
+    margin-top: var(--space-xl);
+}
+
+.about-photo {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-sizing: border-box;
 }
 
 /* ===================================
